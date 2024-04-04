@@ -26,8 +26,16 @@ if (!Auth::isAuthenticated()) {
   <main>
     <div class="container">
       <div id="listagem">
-        <h2>Emprestimo > LISTAGEM</h2>
+        <h2>Emprestimo > Listagem</h2>
         <button class="novo" onclick="link('empresNovo.php')">Novo Emprestimo</button>
+      </div>
+      <div class="fil">
+        <button class="ativo"><a href="empresListAll.php">Todos</a></button>
+        <button><a href="empresListAtivos.php"> Ativos</a></button>
+        <button><a href="empresListDevolv.php">Devolvidos</a></button>
+        <button><a href="empresListVencido.php">Vencidos</a></button>
+        <button><a href="empresListRenov.php">Renovados</a></button>
+        <button><a href="empresListNotRenov.php">Não Renovados</a></button>
       </div>
       <button class="voltar"><a href="index.php">Voltar</a></button>
       <div class="table-responsive">
@@ -62,7 +70,11 @@ if (!Auth::isAuthenticated()) {
                 <td><?php echo $empres->showDataVencimento("d/m/Y"); ?></td>
                 <td><?php echo $empres->showDataDevolucao("d/m/Y"); ?></td>
                 <td>
-                  <?php if(EmprestimoRepository::countByDataAlteracao($empres->getId()) == null && EmprestimoRepository::countByDataDevolucao($empres->getId()) == null && EmprestimoRepository::countByDataAlteracao($empres->getId()) == null){ ?>
+                <?php if(EmprestimoRepository::countByDataAlteracao($empres->getId()) == null && EmprestimoRepository::countByDataDevolucao($empres->getId()) == null && EmprestimoRepository::countByDataRenovacao($empres->getId()) == null){ ?>
+                  <a href="empresExcluir.php?id=<?php echo $empres->getId(); ?>" id="deletar">Renovar</a>
+                  <?php } ?>
+                  
+                  <?php if(EmprestimoRepository::countByDataAlteracao($empres->getId()) == null && EmprestimoRepository::countByDataDevolucao($empres->getId()) == null && EmprestimoRepository::countByDataRenovacao($empres->getId()) == null){ ?>
                   <a href="empresExcluir.php?id=<?php echo $empres->getId(); ?>" id="deletar">Excluir</a>
                   <?php } ?>
                 </td>

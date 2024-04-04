@@ -17,6 +17,8 @@ if (!Auth::isAuthenticated()) {
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="style/listagensIndx.css">
   <link rel="stylesheet" href="style/index.css">
+  <script src="js/index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -30,8 +32,8 @@ if (!Auth::isAuthenticated()) {
       <div class="fil">
         <button><a href="empresListAll.php">Todos</a></button>
         <button><a href="empresListAtivos.php"> Ativos</a></button>
-        <button><a href="empresListDevolv.php">Devolvidos</a></button>
-        <button class="ativo"><a href="empresListVencido.php">Vencidos</a></button>
+        <button class="ativo"><a href="empresListDevolv.php">Devolvidos</a></button>
+        <button><a href="empresListVencido.php">Vencidos</a></button>
         <button><a href="empresListRenov.php">Renovados</a></button>
         <button><a href="empresListNotRenov.php">Não Renovados</a></button>
       </div>
@@ -49,7 +51,7 @@ if (!Auth::isAuthenticated()) {
           </thead>
           <tbody>
               <?php
-              foreach(EmprestimoRepository::listVencido() as $empres){
+              foreach(EmprestimoRepository::listDevolvido() as $empres){
               ?>
               <tr>
                 <td><?php echo $empres->getId(); ?></td>
@@ -77,8 +79,7 @@ if (!Auth::isAuthenticated()) {
       </div>
     </div>
   </main>
-  <script src="js/index.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  
 </body>
 
 </html>

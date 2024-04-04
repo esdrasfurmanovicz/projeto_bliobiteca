@@ -26,8 +26,16 @@ if (!Auth::isAuthenticated()) {
   <main>
     <div class="container">
       <div id="listagem">
-        <h2>Emprestimo > Listagem > Devolvidos</h2>
+        <h2>Emprestimo > Listagem</h2>
         <button class="novo" onclick="link('empresNovo.php')">Novo Emprestimo</button>
+      </div>
+      <div class="fil">
+        <button><a href="empresListAll.php">Todos</a></button>
+        <button class="ativo"><a href="empresListAtivos.php"> Ativos</a></button>
+        <button><a href="empresListDevolv.php">Devolvidos</a></button>
+        <button><a href="empresListVencido.php">Vencidos</a></button>
+        <button><a href="empresListRenov.php">Renovados</a></button>
+        <button><a href="empresListNotRenov.php">Não Renovados</a></button>
       </div>
       <button class="voltar"><a href="index.php">Voltar</a></button>
       <div class="table-responsive">
@@ -43,8 +51,7 @@ if (!Auth::isAuthenticated()) {
           </thead>
           <tbody>
               <?php
-              foreach(EmprestimoRepository::listAll() as $empres){
-                if(EmprestimoRepository::countByDataDevolucao($empres->getId()) > 0){
+              foreach(EmprestimoRepository::listAtivos() as $empres){
               ?>
               <tr>
                 <td><?php echo $empres->getId(); ?></td>
@@ -65,7 +72,7 @@ if (!Auth::isAuthenticated()) {
 
               </tr>
               <?php
-                }}
+                }
               ?>
           </tbody>
         </table>

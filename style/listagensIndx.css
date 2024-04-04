@@ -53,3 +53,27 @@ th{
   #deletar{
     background-color: rgb(172, 0, 0);
   }
+
+  .fil{
+    display: flex;
+    gap: 20px;
+
+  }
+  .fil button{
+    background-color: white;
+    border: none;
+    padding: 7px;
+    border-radius: 5px;
+  }
+  .fil a{
+    color: rgb(0, 145, 255);
+  }
+  .fil a{
+    text-decoration: none;
+  }
+  .fil .ativo{
+    background-color: rgb(0, 145, 255);
+  }
+  .fil .ativo a{
+    color: white;
+  }
