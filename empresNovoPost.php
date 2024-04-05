@@ -27,7 +27,7 @@ $emprestimo->setLivroId($_POST['livroId']);
 $emprestimo->setDataVencimento($dateFormatted);
 $emprestimo->setInclusaoFuncionarioId($user->getID());
 $emprestimo->setDataInclusao(date('Y-m-d h:i:s'));
-echo $emprestimo->getDataVencimento;
+echo $emprestimo->getDataVencimento();
 $emprestimo_retorno = EmprestimoRepository::insert($emprestimo);
 
 if($emprestimo_retorno > 0){

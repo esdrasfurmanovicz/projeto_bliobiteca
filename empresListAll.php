@@ -71,10 +71,7 @@ if (!Auth::isAuthenticated()) {
                 <td><?php echo $empres->showDataDevolucao("d/m/Y"); ?></td>
                 <td>
                 <?php if(EmprestimoRepository::countByDataAlteracao($empres->getId()) == null && EmprestimoRepository::countByDataDevolucao($empres->getId()) == null && EmprestimoRepository::countByDataRenovacao($empres->getId()) == null){ ?>
-                  <a href="empresExcluir.php?id=<?php echo $empres->getId(); ?>" id="deletar">Renovar</a>
-                  <?php } ?>
-                  
-                  <?php if(EmprestimoRepository::countByDataAlteracao($empres->getId()) == null && EmprestimoRepository::countByDataDevolucao($empres->getId()) == null && EmprestimoRepository::countByDataRenovacao($empres->getId()) == null){ ?>
+                  ;
                   <a href="empresExcluir.php?id=<?php echo $empres->getId(); ?>" id="deletar">Excluir</a>
                   <?php } ?>
                 </td>
