@@ -39,7 +39,7 @@ if($_POST["senha"] != $_POST["repSenha"]){
 
 $funcio->setSenha($_POST['senha']);
 $funcio->setAlteracaoFuncionarioId($user->getId());
-$funcio->setDataAlteracao(date('Y-d-m h:i:s'));
+$funcio->setDataAlteracao(date('Y-d-m H:i:s'));
 
 FuncionarioRepository::update($funcio);
 

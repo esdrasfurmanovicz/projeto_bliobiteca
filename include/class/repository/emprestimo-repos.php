@@ -333,6 +333,6 @@ class EmprestimoRepository implements Repository{
     public static function autoCompleteVencimento() {
         $dataSeteDiasDepois = new DateTime();
         $dataSeteDiasDepois->add(new DateInterval('P6D'));
-        return $dataSeteDiasDepois->format('d/m/Y');
+        return $dataSeteDiasDepois->format('Y-m-d');
     }
 }

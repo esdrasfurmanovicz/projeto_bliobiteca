@@ -41,7 +41,7 @@ $cliente->setCpf($_POST['cpf']);
 $cliente->setRg($_POST['rg']);
 $cliente->setDataNascimento($dateFormatted);
 $cliente->setAlteracaoFuncionarioId($user->getId());
-$cliente->setDataAlteracao(date('Y-d-m h:i:s'));
+$cliente->setDataAlteracao(date('Y-d-m H:i:s'));
 
 ClienteRepository::update($cliente);
 

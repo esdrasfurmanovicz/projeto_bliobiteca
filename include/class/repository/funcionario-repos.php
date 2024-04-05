@@ -92,7 +92,7 @@ class FuncionarioRepository implements Repository{
         $db = DB::getInstance();
         $sql = "UPDATE funcionario SET nome = :nome, cpf = :cpf, telefone = :telefone, senha = :senha, email = :email, data_alteracao = :data_alteracao, alteracao_funcionario_id = :alteracao_funcionario_id WHERE id = :id";
         $query = $db->prepare($sql);
-        $query->bindValue(":nome",$obj->getNome());
+        $query->bindValue(":nome",$obj->getNome()); 
         $query->bindValue(":cpf",$obj->getCpf());
         $query->bindValue(":telefone",$obj->getTelefone());
         $query->bindValue(":senha",$obj->getSenha());

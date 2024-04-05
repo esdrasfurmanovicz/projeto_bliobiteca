@@ -37,7 +37,7 @@ if (!$livro){
 <?php include("include/menu.php") ?>
     <main>
         <div class="container">
-            <h2>LIVRO > Editar</h2>
+            <h2>Livro > Editar</h2>
             <button class="voltar"><a href="livroList.php">Voltar</a></button>
             <div class="row mt-4">
                 <div class="col-md-12">
@@ -61,8 +61,8 @@ if (!$livro){
                             </div>
                         </div>
                         <div class="md-3" class='select'>
-                            <label for="autor" class="form-label">Autor</label>
-                            <select name="autor" id="autor">
+                            <label for="autor" class="form-label">Autor</label> <br>
+                            <select name="autor" id="autor" class="form-select">
                                 <?php
                                     foreach(AutorRepository::listAll() as $autor){
                                 ?>

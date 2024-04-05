@@ -26,7 +26,7 @@ if(!$empres){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Renovar Emprestimo</title>
+    <title>Renovar Empréstimo</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
@@ -49,34 +49,35 @@ if(!$empres){
                         <div class="row mb-3">
                             <div class="select col-6">
                                 <label for="livro" class="form-label">Livro</label>
-                                <select name="livroId" id="cliente" required disabled>
+                                <select name="livroId" id="cliente" required>
                                     <?php
                                         foreach(LivroRepository::listAll() as $livro){
-                                            
+                                            if($empres->getLivroId() == $livro->getId()){
                                     ?>
-                                        <option value="<?php echo $livro->getId();?>" <?php if($empres->getLivroId() == $livro->getId()) echo 'selected'; ?>>
+                                        <option value="<?php echo $livro->getId();?>">
                                             <?php echo $livro->getTitulo(); ?>
                                         </option>
-                                    <?php } ?>
+                                    <?php }} ?>
                                 </select>
                             </div>
                             <div class="select col-6">
                                 <label for="cliente" class="form-label">Cliente</label>
-                                <select name="clienteId" id="cliente" required disabled>
+                                <select name="clienteId" id="cliente" required>
                                     <?php
                                         foreach(ClienteRepository::listAll() as $cliente){
-                                            
+                                            if($empres->getClienteId() == $cliente->getId()){;
                                     ?>
-                                        <option value="<?php echo $cliente->getId();?>" <?php if($empres->getClienteId() == $cliente->getId()) echo 'selected'; ?>>
+                                        <option value="<?php echo $cliente->getId();?>">
                                             <?php echo $cliente->getNome(); ?>
                                         </option>
-                                    <?php } ?>
+                                    <?php }} ?>
                                 </select>
                             </div>
                         </div>
                         <div class="md-3 mb-3">
                             <label for="dataVencimento" class="form-label">Nova Data de Vencimento</label>
-                            <input type='text' name="dataVencimento" id="dataVencimento" class="form-control vencimento" required placeholder='dd/mm/aaaa' autocomplete='off' value="<?php echo EmprestimoRepository::autoCompleteVencimento(); ?>" readonly>
+                            <input type='text' name="dataVencimento" id="dataVencimento" class="form-control vencimento" required placeholder='dd/mm/aaaa' autocomplete='off' value="<?php $datetime = DateTime::createFromFormat('Y-m-d', EmprestimoRepository::autoCompleteVencimento());
+                            echo $datetime->format('d/m/Y'); ?>" readonly>
                         </div>
                         <div class="md-3">
                             <input type="hidden" name="id" value="<?php echo $empres->getId(); ?>">

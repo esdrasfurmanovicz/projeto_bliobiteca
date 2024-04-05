@@ -9,16 +9,16 @@ if (!Auth::isAuthenticated()) {
 $user = Auth::getUser();
 
 if(!isset($_POST['id'])){
-    header("location: autorList.php?1");
+    header("location: autorList.php");
     exit();
 }
 if($_POST["id"] == "" || $_POST["id"] == null){
-    header("location: autorList.php?2");
+    header("location: autorList.php");
     exit();
 }
 $autor = AutorRepository::get($_POST["id"]);
 if(!$autor){
-    header("location: autorList.php?3");
+    header("location: autorList.php");
     exit();
 }
 
@@ -35,7 +35,7 @@ if($_POST["nome"] == "" || $_POST["nome"] == null){
 
 $autor->setNome($_POST['nome']);
 $autor->setAlteracaoFuncionarioId($user->getID());
-$autor->setDataAlteracao(date('Y-d-m h:i:s'));
+$autor->setDataAlteracao(date('Y-d-m H:i:s'));
 
 AutorRepository::update($autor);
 

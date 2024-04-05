@@ -23,32 +23,32 @@ if (!Auth::isAuthenticated()) {
     <?php include("include/menu.php") ?>
     <main>
         <div class="container">
-            <h2>LIVRO > Novo</h2>
+            <h2>Livro > Novo</h2>
             <button class="voltar"><a href="livroList.php">Voltar</a></button>
             <div class="row mt-4">
                 <div class="col-md-12 m-auto">
                     <form action="livroNovoPost.php" method="POST">
                         <div class="md-3 mb-3">
                             <label for="titulo" class="form-label">Titulo</label>
-                            <input type="text" name="titulo" id="titulo" class="form-control">
+                            <input type="text" name="titulo" id="titulo" class="form-control" required>
                         </div>
                         <div class="row mb-3">
                             <div class="md-3 col-4">
                                 <label for="ano" class="form-label">Ano</label>
-                                <input type="text" name="ano" id="ano" class="form-control">
+                                <input type="text" name="ano" id="ano" class="form-control" required>
                             </div>
                             <div class="md-3 col-4">
                                 <label for="genero" class="form-label">Genero</label>
-                                <input type="text" name="genero" id="genero" class="form-control">
+                                <input type="text" name="genero" id="genero" class="form-control" required>
                             </div>
                             <div class="md-3 col-4">
                                 <label for="isbn" class="form-label">Isbn</label>
-                                <input type="text" name="isbn" id="isbn" class="form-control">
+                                <input type="text" name="isbn" id="isbn" class="form-control" required>
                             </div>
                         </div>
                         <div class="md-3" class='select'>
-                            <label for="autor" class="form-label">Autor</label>
-                            <select name="autor" id="autor">
+                            <label for="autor" class="form-label">Autor</label> <br>
+                            <select name="autor" id="autor" required class="form-select">
                                 <?php
                                     foreach(AutorRepository::listAll() as $autor){
                                 ?>

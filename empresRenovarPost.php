@@ -9,45 +9,45 @@ if (!Auth::isAuthenticated()) {
 $user = Auth::getUser();
 
 if(!isset($_POST['id'])){
-    header("location: empresListAll.php?1");
+    header("location: empresListAll.php");
     exit();
 }
 if($_POST["id"] == "" || $_POST["id"] == null){
-    header("location: empresListAll.php?2");
+    header("location: empresListAll.php");
     exit();
 }
 $empres = EmprestimoRepository::get($_POST["id"]);
 if(!$empres){
-    header("location: empresListAll.php?3");
+    header("location: empresListAll.php");
     exit();
 }
 
 if(EmprestimoRepository::countByDataDevolucao($_POST["id"]) > 0){
-    header("location: empresListAll.php?4");
+    header("location: empresListAll.php");
     exit(); 
 }
 if(EmprestimoRepository::countByDataRenovacao($_POST["id"]) > 0){
-    header("location: empresListAll.php?5");
+    header("location: empresListAll.php");
     exit(); 
 }
 if(EmprestimoRepository::countByDataAlteracao($_POST["id"]) > 0){
-    header("location: empresListAll.php?6");
+    header("location: empresListAll.php");
     exit(); 
 }
 if($empres->getDataVencimento() < date('Y-m-d')){
-    header("location: empresListAll.php?7");
+    header("location: empresListAll.php");
     exit(); 
 }
 
-$emprestimo = Factory::emprestimo();
+$datetime = DateTime::createFromFormat('d/m/Y', $_POST["dataVencimento"]);
+$dateFormatted = $datetime->format('Y-m-d');
 
+$empres->setDataVencimento($dateFormatted);
+$empres->setAlteracaoFuncionarioId($user->getId());
+$empres->setRenovacaoFuncionarioId($user->getId());
+$empres->setDataAlteracao(date('Y-d-m H:i:s'));
+$empres->setDataRenovacao(date('Y-d-m H:i:s'));
 
-$emprestimo->setDataVencimento(EmprestimoRepository::autoCompleteVencimento());
-$emprestimo->setAlteracaoFuncionarioId($user->getId());
-$emprestimo->setRenovacaoFuncionarioId($user->getId());
-$emprestimo->setDataAlteracao(date('Y-d-m h:i:s'));
-$emprestimo->setDataRenovacao(date('Y-d-m h:i:s'));
+EmprestimoRepository::update($empres);
 
-EmprestimoRepository::update($emprestimo);
-
-header("Location: empresListAll.php?8");
+header("Location: empresListAll.php?dataV=". $empres->getDataVencimento() ."?alteFunId=". $empres->getAlteracaoFuncionarioId() ."?renovFunId=". $empres->getRenovacaoFuncionarioId() ."?dataAlter=". $empres->getDataAlteracao() ."?dataRenov=" . $empres->getDataRenovacao(). "?id=". $empres->getId());

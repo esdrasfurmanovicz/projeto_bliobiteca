@@ -39,7 +39,7 @@ $livro->setGenero($_POST['genero']);
 $livro->setIsbn($_POST['isbn']);
 $livro->setAutorId($_POST['autor']);
 $livro->setinclusaoFuncionarioId($user->getID());
-$livro->setDataInclusao(date('Y-d-m h:i:s'));
+$livro->setDataInclusao(date('Y-d-m H:i:s'));
 
 LivroRepository::update($livro);
 

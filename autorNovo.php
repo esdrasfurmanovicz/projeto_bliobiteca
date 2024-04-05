@@ -23,14 +23,14 @@ if (!Auth::isAuthenticated()) {
     <?php include("include/menu.php") ?>
     <main>
         <div class="container">
-            <h2>AUTOR > Novo</h2>
+            <h2>Autor > Novo</h2>
             <button class="voltar"><a href="autorList.php">Voltar</a></button>
             <div class="row mt-4">
                 <div class="col-md-12">
                     <form action="autorNovoPost.php" method="POST">
                         <div class="md-3">
                             <label for="nome" class="form-label">Nome</label>
-                            <input type="text" name="nome" id="nome" class="form-control">
+                            <input type="text" name="nome" id="nome" class="form-control" required>
                         </div>
                         <div class="md-3">
                             <button type="submit" class="enviar">Enviar</button>

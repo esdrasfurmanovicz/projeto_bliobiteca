@@ -24,7 +24,7 @@ if (!Auth::isAuthenticated()) {
     <?php include("include/menu.php") ?>
     <main>
         <div class="container">
-            <h2>CLIENTE > Novo</h2>
+            <h2>Cliente > Novo</h2>
             <button class="voltar"><a href="clienteList.php">Voltar</a></button>
             <div class="row mt-4">
                 <div class="col-md-12">

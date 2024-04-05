@@ -12,7 +12,7 @@ if (!Auth::isAuthenticated()) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Novo Cliente</title>
+    <title>Novo Empréstimo</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
@@ -62,7 +62,8 @@ if (!Auth::isAuthenticated()) {
                         </div>
                         <div class="md-3 mb-3">
                             <label for="dataVencimento" class="form-label">Data de Vencimento</label>
-                            <input type='text' name="dataVencimento" id="dataVencimento" class="form-control vencimento" required placeholder='dd/mm/aaaa' autocomplete='off' value="<?php echo EmprestimoRepository::autoCompleteVencimento(); ?>" readonly>
+                            <input type='text' name="dataVencimento" id="dataVencimento" class="form-control vencimento" required placeholder='dd/mm/aaaa' autocomplete='off' value="<?php $datetime = DateTime::createFromFormat('Y-m-d', EmprestimoRepository::autoCompleteVencimento());
+                            echo $datetime->format('d/m/Y'); ?>" readonly>
                         </div>
                         <div class="md-3">
                             <button type="submit" class="enviar">Salvar</button>

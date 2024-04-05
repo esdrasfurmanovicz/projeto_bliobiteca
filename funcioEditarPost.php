@@ -39,7 +39,7 @@ $funcio->setTelefone($_POST['telefone']);
 $funcio->setSenha($_POST['senha']);
 $funcio->setEmail($_POST['email']);
 $funcio->setAlteracaoFuncionarioId($user->getId());
-$funcio->setDataAlteracao(date('Y-d-m h:i:s'));
+$funcio->setDataAlteracao(date('Y-d-m H:i:s'));
 
 FuncionarioRepository::update($funcio);
 

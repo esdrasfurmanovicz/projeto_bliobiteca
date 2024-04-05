@@ -12,7 +12,7 @@ if (!Auth::isAuthenticated()) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AUTOR > LISTAGEM</title>
+  <title>Autor Listagem</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="style/listagensIndx.css">
@@ -24,7 +24,7 @@ if (!Auth::isAuthenticated()) {
   <main>
     <div class="container">
       <div id="listagem">
-        <h2>AUTORES > LISTAGEM</h2> 
+        <h2>Autor > Listagem</h2> 
         <button class="novo" onclick="link('autorNovo.php')">Novo Autor</button>
       </div>
       <button class="voltar"><a href="index.php">Voltar</a></button>

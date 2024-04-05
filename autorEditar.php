@@ -37,14 +37,14 @@ if (!$autor){
 <?php include("include/menu.php") ?>
     <main>
         <div class="container">
-            <h2>AUTOR > Editar</h2>
+            <h2>Autor > Editar</h2>
             <button class="voltar"><a href="autorList.php">Voltar</a></button>
             <div class="row mt-4">
                 <div class="col-md-12">
                     <form action="autorEditarPost.php" method="POST">
                         <div class="md-3">
                             <label for="nome" class="form-label">Nome</label>
-                            <input type="text" name="nome" id="nome" class="form-control" value="<?php echo $autor->getNome();?>">
+                            <input type="text" name="nome" id="nome" class="form-control" value="<?php echo $autor->getNome();?>" required>
                         </div>
                         <div class="md-3">
                             <input type="hidden" name="id" value="<?php echo $autor->getId();?>">

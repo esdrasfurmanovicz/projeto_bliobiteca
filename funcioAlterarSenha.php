@@ -41,7 +41,7 @@ if (!$funcionario) {
     <?php include("include/menu.php") ?>
     <main>
         <div class="container">
-            <h2>funcionario > Editar</h2>
+            <h2>Funcionario > Editar</h2>
             <button class="voltar"><a href="funcioList.php">Voltar</a></button>
             <div class="row mt-4">
                 <div class="col-md-12">

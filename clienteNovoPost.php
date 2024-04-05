@@ -28,7 +28,7 @@ $cliente->setCpf($_POST['cpf']);
 $cliente->setRg($_POST['rg']);
 $cliente->setDataNascimento($dateFormatted);
 $cliente->setinclusaoFuncionarioId($user->getID());
-$cliente->setDataInclusao(date('Y-m-d h:i:s'));
+$cliente->setDataInclusao(date('Y-m-d H:i:s'));
 
 $cliente_retorno = ClienteRepository::insert($cliente);
 if($cliente_retorno > 0){
