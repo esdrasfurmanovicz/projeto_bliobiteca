@@ -198,7 +198,7 @@ class EmprestimoRepository implements Repository{
     }
     public static function update($obj){
         $db = DB::getInstance();
-        $sql = "UPDATE emprestimo SET data_vencimento = :data_vencimento, data_alteracao = :data_alteracao, data_renovacao = :data_renovacao, alteracao_funcionario_id = :alteracao_funcionario_id, renovacao_funcionario_id WHERE id = :id";
+        $sql = "UPDATE emprestimo SET data_vencimento = :data_vencimento, data_alteracao = :data_alteracao, data_renovacao = :data_renovacao, alteracao_funcionario_id = :alteracao_funcionario_id, renovacao_funcionario_id = :renovacao_funcionario_id  WHERE id = :id";
 
         $query = $db->prepare($sql);//prepara a query para ser executada.
         $query->bindValue(':id', $obj->getId());
@@ -330,5 +330,9 @@ class EmprestimoRepository implements Repository{
         $row = $query->fetch(PDO::FETCH_ASSOC);
         return $row["count(*)"];
     }
-
+    public static function autoCompleteVencimento() {
+        $dataSeteDiasDepois = new DateTime();
+        $dataSeteDiasDepois->add(new DateInterval('P6D'));
+        return $dataSeteDiasDepois->format('d/m/Y');
+    }
 }

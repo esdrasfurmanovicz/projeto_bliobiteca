@@ -20,7 +20,7 @@ if($_POST["nome" == ''] || $_POST["nome" == null]){
 $autor = Factory::autor();
 
 $autor->setNome($_POST['nome']);
-$autor->setinclusaoFuncionarioId($user->getID());
+$autor->setinclusaoFuncionarioId($user->getId());
 $autor->setDataInclusao(date('Y-d-m h:i:s'));
 
 $autor_retorno = AutorRepository::insert($autor);

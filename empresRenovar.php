@@ -5,6 +5,20 @@ if (!Auth::isAuthenticated()) {
     header("Location: login.php");
     exit();
 }
+
+if(!isset($_GET['id'])){
+    header("location: empresListAll.php");
+    exit();
+}
+if($_GET["id"] == "" || $_GET["id"] == null){
+    header("location: empresListAll.php");
+    exit();
+}
+$empres = EmprestimoRepository::get($_GET["id"]);
+if(!$empres){
+    header("location: empresListAll.php");
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -12,7 +26,7 @@ if (!Auth::isAuthenticated()) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Novo Cliente</title>
+    <title>Renovar Emprestimo</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
@@ -27,44 +41,45 @@ if (!Auth::isAuthenticated()) {
     <?php include("include/menu.php"); ?>
     <main>
         <div class="container">
-            <h2>Empréstimo > Novo</h2>
+            <h2>Empréstimo > Renovar</h2>
             <button class="voltar"><a href="empresListAll.php">Voltar</a></button>
             <div class="row mt-4">
                 <div class="col-md-12">
-                    <form action="empresNovoPost.php" method="POST">
+                    <form action="empresRenovarPost.php" method="POST">
                         <div class="row mb-3">
                             <div class="select col-6">
                                 <label for="livro" class="form-label">Livro</label>
-                                <select name="livroId" id="cliente" required>
+                                <select name="livroId" id="cliente" required disabled>
                                     <?php
                                         foreach(LivroRepository::listAll() as $livro){
-                                            if(EmprestimoRepository::countByLivros($livro->getId()) == 0){
+                                            
                                     ?>
-                                        <option value="<?php echo $livro->getId();?>">
+                                        <option value="<?php echo $livro->getId();?>" <?php if($empres->getLivroId() == $livro->getId()) echo 'selected'; ?>>
                                             <?php echo $livro->getTitulo(); ?>
                                         </option>
-                                    <?php }} ?>
+                                    <?php } ?>
                                 </select>
                             </div>
                             <div class="select col-6">
                                 <label for="cliente" class="form-label">Cliente</label>
-                                <select name="clienteId" id="cliente" required>
+                                <select name="clienteId" id="cliente" required disabled>
                                     <?php
                                         foreach(ClienteRepository::listAll() as $cliente){
-                                            if(EmprestimoRepository::countByClientes($cliente->getId()) == 0){
+                                            
                                     ?>
-                                        <option value="<?php echo $cliente->getId();?>">
+                                        <option value="<?php echo $cliente->getId();?>" <?php if($empres->getClienteId() == $cliente->getId()) echo 'selected'; ?>>
                                             <?php echo $cliente->getNome(); ?>
                                         </option>
-                                    <?php }} ?>
+                                    <?php } ?>
                                 </select>
                             </div>
                         </div>
                         <div class="md-3 mb-3">
-                            <label for="dataVencimento" class="form-label">Data de Vencimento</label>
+                            <label for="dataVencimento" class="form-label">Nova Data de Vencimento</label>
                             <input type='text' name="dataVencimento" id="dataVencimento" class="form-control vencimento" required placeholder='dd/mm/aaaa' autocomplete='off' value="<?php echo EmprestimoRepository::autoCompleteVencimento(); ?>" readonly>
                         </div>
                         <div class="md-3">
+                            <input type="hidden" name="id" value="<?php echo $empres->getId(); ?>">
                             <button type="submit" class="enviar">Salvar</button>
                         </div>
                     </form>
