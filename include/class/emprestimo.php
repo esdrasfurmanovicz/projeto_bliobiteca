@@ -42,13 +42,14 @@ class Emprestimo{
         return $this->data_vencimento;
     }
 
-    public function setDataVencimento($data_vencimento){
+    public function setDataVencimento($data_vencimento){ 
         $this->data_vencimento = $data_vencimento;
     }
     public function showDataVencimento($format = 'Y-m-d'){
         $datetime = DateTime::createFromFormat('Y-m-d', $this->data_vencimento);
         return $datetime->format($format);
     }
+
     public function getDataInclusao(){
         return $this->data_inclusao;
     }
