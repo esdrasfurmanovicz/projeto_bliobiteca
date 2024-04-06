@@ -117,3 +117,10 @@ nav #ul{
   color: black;
   font-weight: bold;
 }
+
+input:focus,
+input:hover {
+    border-color: var(--cor02);
+    background-color: #fff;
+    box-shadow: 0 0 0 5px rgb(129 140 248 / 30%);
+}

@@ -30,7 +30,7 @@ if($_POST["nome"] == "" || $_POST["nome"] == null){
     header("Location: autorNovo.php?id=".$autor->getId());
     exit();
 }
-
+date_default_timezone_set('America/Sao_Paulo');
 
 
 $autor->setNome($_POST['nome']);

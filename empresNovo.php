@@ -74,6 +74,9 @@ if (!Auth::isAuthenticated()) {
         </div>
     </main>
 </body>
+<script src="js/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
 <script src="moment.js"></script>
 <script src="pikaday.js"></script>
 <script>

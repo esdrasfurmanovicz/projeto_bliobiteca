@@ -18,7 +18,7 @@ if(Auth::isAuthenticated()){
     <title>Login</title>
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style/index.css">
-    <link rel="stylesheet" href="style/login.css">
+    <link rel="stylesheet" href="style/senha.css">
 </head>
 
 <body>
@@ -50,50 +50,22 @@ if(Auth::isAuthenticated()){
                                 </path>
                             </svg>
                         </label>
-                        <input class="input" type="password" name="senha" id="password" placeholder="senha">
+                        <input class="input" type="password" name="senha" id="senha" placeholder="senha">
                     </div><br>
                     <button type="submit" id="entrar">Entrar</button>
-                    <p>Não tem uma conta? <strong onclick="showCard()">Cadastre-se</strong></p>
                     <p><small>Esqueci a senha.</small></p>
                 </form>
             </div>
         </div>
     </main>
-    <div id="card" class="card">
-        <div class="card-content">
-            <form class="form">
-                <p class="title">Cadastro </p>
-                <p class="message">Cadastre-se para poder acessar o melhor site para motorsitas do Brasil, o Al'one</p>
-                <div class="flex">
-                    <label>
-                        <input class="input" type="text" placeholder="" required="">
-                        <span>Nome</span>
-                    </label>
-
-                    <label>
-                        <input class="input" type="text" placeholder="" required="">
-                        <span>Sobrenome</span>
-                    </label>
-                </div>
-                <label>
-                    <input type="text" name="logcpf" id="logcpf" class="input" placeholder="" required="">
-                    <span>CPF</span>
-                </label>
-
-                <label>
-                    <input class="input" type="password" placeholder="" required="">
-                    <span>Senha</span>
-                </label>
-                <label>
-                    <input class="input" type="password" placeholder="" required="">
-                    <span>Confirme sua senha</span>
-                </label>
-                <button class="submit">Cadastrar</button>
-                <p class="signin">Ja possui uma conta? <strong onclick="hideCard()">Logar</strong> </p>
-            </form>
-        </div>
-    </div>
     <script src="js/login.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/jquery.mask.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        $('#cpf').mask('000.000.000-00', {reverse: true});
+    })
+    </script>
 </body>
 
 </html>

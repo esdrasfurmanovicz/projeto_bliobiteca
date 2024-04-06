@@ -111,14 +111,14 @@ main {
 }
 
 .input:focus,
-input:hover {
+.input:hover {
     outline: none;
     border-color: var(--cor02);
     background-color: #fff;
     box-shadow: 0 0 0 5px rgb(129 140 248 / 30%);
 }
 
-/*------ Settings ------*/
+/*------ config ------*/
 .container {
     --color: var(--preto-padrao);
     --size: 30px;
@@ -138,16 +138,16 @@ input:hover {
 
 .container .lock-open {
     position: absolute;
-    animation: keyframes-fill .5s;
+
 }
 
 .container .lock {
     position: absolute;
     display: none;
-    animation: keyframes-fill .5s;
+
 }
 
-/* ------ On check event ------ */
+/* ------ check on ------ */
 .container input:checked~.lock-open {
     display: none;
 }
@@ -156,7 +156,7 @@ input:hover {
     display: block;
 }
 
-/* ------ Hide the default checkbox ------ */
+/* ------ esconde o ico padrão ------ */
 .container input {
     position: absolute;
     opacity: 0;
@@ -165,23 +165,6 @@ input:hover {
     width: 0;
 }
 
-/* ------ Animation ------ */
-@keyframes keyframes-fill {
-    0% {
-        transform: scale(0);
-        opacity: 0;
-    }
-
-    50% {
-        transform: scale(1.2);
-    }
-}
-
-/* position: absolute;
-  left: 1rem;
-  fill: none;
-  width: 1rem;
-  height: 1rem; */
 
 /* reset input */
 .form__field:required,

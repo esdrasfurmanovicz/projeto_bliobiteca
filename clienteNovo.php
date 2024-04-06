@@ -28,7 +28,7 @@ if (!Auth::isAuthenticated()) {
             <button class="voltar"><a href="clienteList.php">Voltar</a></button>
             <div class="row mt-4">
                 <div class="col-md-12">
-                    <form action="clienteNovoPost.php" method="POST">
+                    <form action="clienteNovoPost.php" method="POST" id="formulario">
                         <div class="md-3 mb-3">
                             <label for="nome" class="form-label">Nome</label>
                             <input type="text" name="nome" id="nome" class="form-control" required>
@@ -45,18 +45,18 @@ if (!Auth::isAuthenticated()) {
                         </div>
                         <div class="md-3 mb-3">
                             <label for="cpf" class="form-label">Cpf</label>
-                            <input type="text" name="cpf" id="cpf" class="form-control" required>
+                            <input type="text" name="cpf" id="cpf" class="form-control" >
                         </div>
                         <div class="md-3 mb-3">
                             <label for="rg" class="form-label">Rg</label>
-                            <input type="text" name="rg" id="rg" class="form-control" required>
+                            <input type="text" name="rg" id="rg" class="form-control" >
                         </div>
                         <div class="md-3 mb-3">
-                            <label for="datepicker" class="form-label">Data de acimento</label>
-                            <input type='text' name="dataNascimento" id="datepicker" class="form-control nascimento" required placeholder='dd/mm/aaaa'>
+                            <label for="datepicker" class="form-label">Data de Nacimento</label>
+                            <input type='text' name="dataNascimento" id="datepicker" class="form-control nascimento" required placeholder='dd/mm/aaaa' autocomplete="off">
                         </div>
                         <div class="md-3">
-                            <button type="submit" class="enviar">Salvar</button>
+                            <button type="submit" class="enviar" onclick="submitForm()">Salvar</button> 
                         </div>
                     </form>
                 </div>
@@ -69,8 +69,6 @@ if (!Auth::isAuthenticated()) {
 <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="js/jquery.mask.min.js"></script>
-<script src="moment.js"></script>
-<script src="pikaday.js"></script>
 <script>
     var picker = new Pikaday({
         field: document.getElementById('datepicker'),
@@ -95,7 +93,12 @@ if (!Auth::isAuthenticated()) {
     });
     $(document).ready(function(){
         $('.nascimento').mask('00/00/0000');
+        $('#cpf').mask('000.000.000-00', {reverse: true});
+        $('#rg').mask('00.000.000-0', {reverse: true});
+        $('#telefone').mask('(00) 00000-0000');
     })
+
+    
 </script>
 
 </html>

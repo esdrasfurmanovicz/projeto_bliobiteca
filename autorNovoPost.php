@@ -16,7 +16,7 @@ if($_POST["nome" == ''] || $_POST["nome" == null]){
     header("Location: autorNovo.php");
     exit();
 }
-
+date_default_timezone_set('America/Sao_Paulo');
 $autor = Factory::autor();
 
 $autor->setNome($_POST['nome']);

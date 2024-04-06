@@ -31,7 +31,7 @@ if($_POST["titulo"] == "" || $_POST["titulo"] == null){
     exit();
 }
 
-
+date_default_timezone_set('America/Sao_Paulo');
 
 $livro->setTitulo($_POST['titulo']);
 $livro->setAno($_POST['ano']);

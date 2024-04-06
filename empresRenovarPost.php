@@ -38,7 +38,7 @@ if($empres->getDataVencimento() < date('Y-m-d')){
     header("location: empresListAll.php");
     exit(); 
 }
-
+date_default_timezone_set('America/Sao_Paulo');
 $datetime = DateTime::createFromFormat('d/m/Y', $_POST["dataVencimento"]);
 $dateFormatted = $datetime->format('Y-m-d');
 
