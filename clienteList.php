@@ -20,6 +20,7 @@ if (!Auth::isAuthenticated()) {
 </head>
 
 <body>
+  <?php include("include/excluirPopUp.php") ?>
   <?php include("include/menu.php") ?>
   <main>
     <div class="container">
@@ -57,7 +58,7 @@ if (!Auth::isAuthenticated()) {
                 <td>
                   <a href="clienteEditar.php?id=<?php echo $cliente->getId(); ?>" id="editar">Editar</a>
                   <?php if(EmprestimoRepository::countByClientes($cliente->getId()) == 0){ ?>
-                    <a href="clienteExcluir.php?id=<?php echo $cliente->getId(); ?>" id="deletar">Deletar</a>
+                    <a onclick="popUpExc(<?php echo $cliente->getId()?>)" class="deletar">Deletar</a>
                   <?php }?>
                 </td>
               </tr>
@@ -70,6 +71,7 @@ if (!Auth::isAuthenticated()) {
     </div>
   </main>
   <script src="js/index.js"></script>
+  <script src="js/excluir.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
 
