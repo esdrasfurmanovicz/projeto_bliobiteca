@@ -20,7 +20,6 @@ if (!Auth::isAuthenticated()) {
 </head>
 
 <body>
-  <?php include("include/excluirPopUp.php") ?>
   <?php include("include/menu.php") ?>
   <main>
     <div class="container">
@@ -54,9 +53,9 @@ if (!Auth::isAuthenticated()) {
                 <td><?php echo $funcionario->getEmail(); ?></td>
 
                 <td>
-                  <a href="funcioEditar.php?id=<?php echo $funcionario->getId(); ?>" id="editar">Editar</a>
+                  <a href="funcioEditar.php?id=<?php echo $funcionario->getId(); ?>" class="editar">Editar</a>
                   <?php if( EmprestimoRepository::countByInclusaoFuncionario($funcionario->getId()) == 0 && EmprestimoRepository::countByAlteracaoFuncionario($funcionario->getId()) == 0 && EmprestimoRepository::countByDevolucaoFuncionario($funcionario->getId()) == 0 && EmprestimoRepository::countByRenovacaoFuncionario($funcionario->getId()) == 0 && ClienteRepository::countByInclusaoFuncionario($funcionario->getId()) == 0 && ClienteRepository::countByAlteracaoFuncionario($funcionario->getId()) == 0 && AutorRepository::countByInclusaoFuncionario($funcionario->getId()) == 0 && AutorRepository::countByAlteracaoFuncionario($funcionario->getId()) == 0 && LivroRepository::countByInclusaoFuncionario($funcionario->getId()) == 0 && LivroRepository::countByAlteracaoFuncionario($funcionario->getId()) == 0){ ?>
-                    <a href="funcioExcluir.php?id=<?php echo $funcionario->getId(); ?>" id="deletar">Deletar</a>
+                    <a href="funcioExcluir.php?id=<?php echo $funcionario->getId(); ?>" class="deletar">Deletar</a>
                   <?php }?>
                 </td>
               </tr>
@@ -69,7 +68,6 @@ if (!Auth::isAuthenticated()) {
     </div>
   </main>
   <script src="js/index.js"></script>
-  <script src="js/excluir.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
 

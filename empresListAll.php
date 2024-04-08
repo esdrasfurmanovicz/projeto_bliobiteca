@@ -21,7 +21,7 @@ if (!Auth::isAuthenticated()) {
 </head>
 
 <body>
-  <?php include("include/excluirPopUp.php") ?>
+
   <?php include("include/menu.php") ?>
   <main>
     <div class="container">
@@ -70,12 +70,12 @@ if (!Auth::isAuthenticated()) {
                 <td><?php echo $empres->showDataVencimento("d/m/Y"); ?></td>
                 <td><?php echo $empres->showDataDevolucao("d/m/Y"); ?></td>
                 <td>
-                <?php if(EmprestimoRepository::countByDataRenovacao($empres->getId()) == null && EmprestimoRepository::countByDataDevolucao($empres->getId()) == null && $empres->getDataVencimento() >= date('Y-m-d')){ ?>
-                  <a href="empresRenovar.php?id=<?php echo $empres->getId(); ?>" id="renovar">Renovar</a>
+                <?php if(EmprestimoRepository::countByDataRenovacao($empres->getId()) == 0 && EmprestimoRepository::countByDataDevolucao($empres->getId()) == 0 && $empres->getDataVencimento() >= date('Y-m-d')){ ?>
+                  <a href="empresRenovar.php?id=<?php echo $empres->getId(); ?>" class="renovar">Renovar</a>
                   <?php } ?>
                   
-                  <?php if(EmprestimoRepository::countByDataAlteracao($empres->getId()) == null && EmprestimoRepository::countByDataDevolucao($empres->getId()) == null && EmprestimoRepository::countByDataRenovacao($empres->getId()) == null){ ?>
-                  <a onclick="popUpExc(<?php echo $emprestimo->getId()?>)" class="deletar">Excluir</a>
+                  <?php if(EmprestimoRepository::countByDataAlteracao($empres->getId()) == 0 && EmprestimoRepository::countByDataDevolucao($empres->getId()) == 0 && EmprestimoRepository::countByDataRenovacao($empres->getId()) == 0){ ?>
+                  <a href="empresExcluir?id=<?php $empres->getId() ?>" class="deletar">Excluir</a>
                   <?php } ?>
                 </td>
 

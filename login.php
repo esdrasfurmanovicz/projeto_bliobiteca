@@ -19,6 +19,7 @@ if(Auth::isAuthenticated()){
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style/index.css">
     <link rel="stylesheet" href="style/senha.css">
+    <link rel="stylesheet" href="style/login.css">
 </head>
 
 <body>
@@ -58,7 +59,7 @@ if(Auth::isAuthenticated()){
             </div>
         </div>
     </main>
-    <script src="js/login.js"></script>
+    <script src="js/senha.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="js/jquery.mask.min.js"></script>
     <script>
