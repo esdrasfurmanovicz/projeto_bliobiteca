@@ -12,7 +12,7 @@ if(!isset($_POST['nome'])){
     header("Location: funcioNovo.php");
     exit();
 }
-if($_POST["nome" == ''] || $_POST["nome" == null]){
+if($_POST["nome"] == '' || $_POST["nome"] == null){
 
     header("Location: funcioNovo.php");
     exit();
