@@ -16,16 +16,32 @@ if($_POST["nome"] == '' || $_POST["nome"] == null){
     header("Location: clienteNovo.php");
     exit();
 }
+$email = $_POST["email"];
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    header("Location: clienteNovo.php");
+    exit();
+}
+
+
+$cpf = $_POST["cpf"];
+if ($cpf == ""){
+    $cpf = null;
+}
+$rg = $_POST["rg"];
+if ($rg == ""){
+    $rg = null;
+}
+date_default_timezone_set('America/Sao_Paulo');
 
 $datetime = DateTime::createFromFormat('d/m/Y', $_POST["dataNascimento"]);
 $dateFormatted = $datetime->format('Y-m-d');
 $cliente = Factory::cliente();
 
 $cliente->setNome($_POST['nome']);
-$cliente->setTelefone($_POST['telefone']);
-$cliente->setEmail($_POST['email']);
-$cliente->setCpf($_POST['cpf']);
-$cliente->setRg($_POST['rg']);
+$cliente->setTelefone($_POST["telefone"]);
+$cliente->setEmail($email);
+$cliente->setCpf($cpf);
+$cliente->setRg($rg);
 $cliente->setDataNascimento($dateFormatted);
 $cliente->setinclusaoFuncionarioId($user->getID());
 $cliente->setDataInclusao(date('Y-m-d H:i:s'));

@@ -35,7 +35,7 @@ if (!Auth::isAuthenticated()) {
                         <div class="row mb-3">
                             <div class="md-3 col-4">
                                 <label for="ano" class="form-label">Ano</label>
-                                <input type="text" name="ano" id="ano" class="form-control" required>
+                                <input type="text" name="ano" id="ano" class="form-control" maxlength="4">
                             </div>
                             <div class="md-3 col-4">
                                 <label for="genero" class="form-label">Genero</label>
@@ -43,7 +43,7 @@ if (!Auth::isAuthenticated()) {
                             </div>
                             <div class="md-3 col-4">
                                 <label for="isbn" class="form-label">Isbn</label>
-                                <input type="text" name="isbn" id="isbn" class="form-control" required>
+                                <input type="text" name="isbn" id="isbn" class="form-control" required maxlength="13">
                             </div>
                         </div>
                         <div class="md-3" class='select'>

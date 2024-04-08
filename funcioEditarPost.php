@@ -30,14 +30,26 @@ if($_POST["nome"] == "" || $_POST["nome"] == null){
     header("Location: funcioNovo.php?id=".$funcio->getId());
     exit();
 }
+date_default_timezone_set('America/Sao_Paulo');
 
+$email = $_POST["email"];
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    header("Location: funcioNovo.php");
+    exit();
+}
+
+
+$cpf = $_POST["cpf"];
+if ($cpf == ""){
+    $cpf = null;
+}
 
 
 $funcio->setNome($_POST['nome']);
-$funcio->setCpf($_POST['cpf']);
+$funcio->setCpf($cpf);
 $funcio->setTelefone($_POST['telefone']);
 $funcio->setSenha($_POST['senha']);
-$funcio->setEmail($_POST['email']);
+$funcio->setEmail($email);
 $funcio->setAlteracaoFuncionarioId($user->getId());
 $funcio->setDataAlteracao(date('Y-d-m H:i:s'));
 

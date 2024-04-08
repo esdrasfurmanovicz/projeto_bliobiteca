@@ -16,6 +16,7 @@ if($_POST["titulo"] == '' || $_POST["titulo"] == null){
     header("Location: livroNovo.php");
     exit();
 }
+date_default_timezone_set('America/Sao_Paulo');
 
 $livro = Factory::livro(); 
 

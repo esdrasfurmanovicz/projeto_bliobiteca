@@ -49,7 +49,7 @@ if (!$livro){
                         <div class="row mb-3">
                             <div class="md-3 col-4">
                                 <label for="ano" class="form-label">Ano</label>
-                                <input type="text" name="ano" id="ano" class="form-control" value="<?php echo $livro->getAno();?>">
+                                <input type="text" name="ano" id="ano" class="form-control" value="<?php echo $livro->getAno();?>" maxlength="4">
                             </div>
                             <div class="md-3 col-4">
                                 <label for="genero" class="form-label">Genero</label>
@@ -57,7 +57,7 @@ if (!$livro){
                             </div>
                             <div class="md-3 col-4">
                                 <label for="isbn" class="form-label">Isbn</label>
-                                <input type="text" name="isbn" id="isbn" class="form-control" value="<?php echo $livro->getIsbn();?>">
+                                <input type="text" name="isbn" id="isbn" class="form-control" value="<?php echo $livro->getIsbn();?>" maxlength="13">
                             </div>
                         </div>
                         <div class="md-3" class='select'>
