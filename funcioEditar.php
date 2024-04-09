@@ -64,7 +64,7 @@ if (!$funcionario) {
                             <input type="text" name="email" id="email" class="form-control" value="<?php echo $funcionario->getEmail(); ?>" required>
                         </div>
                         <div class="md-3 mb-3">
-                            <button id='alterar'><a href="funcioAlterarSenha.php?id=<?php echo $funcionario->getId() ?>">Alterar Senha</a></button>
+                            <button class='alterar'><a href="funcioAlterarSenha.php?id=<?php echo $funcionario->getId() ?>">Alterar Senha</a></button>
                         </div>
                         
                         

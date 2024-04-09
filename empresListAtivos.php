@@ -25,7 +25,7 @@ if (!Auth::isAuthenticated()) {
   <?php include("include/menu.php") ?>
   <main>
     <div class="container">
-      <div id="listagem">
+      <div class="listagem">
         <h2>Empréstimo > Listagem</h2>
         <button class="novo" onclick="link('empresNovo.php')">Novo Emprestimo</button>
       </div>
@@ -75,7 +75,7 @@ if (!Auth::isAuthenticated()) {
                   <?php } ?>
                   
                   <?php if(EmprestimoRepository::countByDataAlteracao($empres->getId()) == null && EmprestimoRepository::countByDataDevolucao($empres->getId()) == null && EmprestimoRepository::countByDataRenovacao($empres->getId()) == null){ ?>
-                  <a href="empresExcluir.php?id=<?php echo $empres->getId(); ?>" id="deletar">Excluir</a>
+                  <a href="empresExcluir.php?id=<?php echo $empres->getId(); ?>" class="deletar">Excluir</a>
                   <?php } ?>
                 </td>
 

@@ -57,14 +57,14 @@ header a:hover{
   text-decoration: none;
   color: var(--cor03);
 }
-#headTitle{
+.headTitle{
   display: flex;
   align-items: center;
   justify-content: space-around;
   font-family: var(--fonte-destaque);
   cursor: pointer;
 }
-#headTitle img{
+.headTitle img{
   width: 30px;
 }
 nav{
@@ -72,7 +72,7 @@ nav{
   align-items: end;
   justify-content: space-between;
 }
-nav #ul{
+nav .ul{
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -98,10 +98,10 @@ nav #ul{
 .dropdown-menu a:hover{
   color: black;
 }
-#sair{
+.sair{
   margin-right: 20px;
 }
-#sair:hover{
+.sair:hover{
   color: rgb(237, 102, 102);
 }
 

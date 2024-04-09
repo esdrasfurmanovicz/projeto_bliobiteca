@@ -23,7 +23,7 @@ if (!Auth::isAuthenticated()) {
     <?php include("include/menu.php") ?>
     <main>
         <div class="container">
-            <div id="listagem">
+            <div class="listagem">
                 <h2>Autor > Listagem</h2>
                 <button class="novo" onclick="link('autorNovo.php')">Novo Autor</button>
             </div>

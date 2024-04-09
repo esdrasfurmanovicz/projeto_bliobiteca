@@ -6,6 +6,8 @@ if (!Auth::isAuthenticated()) {
     exit();
 }
 
+
+
 $user = Auth::getUser();
 
 if(!isset($_POST['id'])){
@@ -21,7 +23,10 @@ if(!$empres){
     header("location: empresListAll.php");
     exit();
 }
-
+if($empres->getDataVencimento() < date('Y-m-d')){
+    header("location: empresListAll.php");
+    exit();
+}
 if(EmprestimoRepository::countByDataDevolucao($_POST["id"]) > 0){
     header("location: empresListAll.php");
     exit(); 

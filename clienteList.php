@@ -23,7 +23,7 @@ if (!Auth::isAuthenticated()) {
   <?php include("include/menu.php") ?>
   <main>
     <div class="container">
-      <div id="listagem">
+      <div class="listagem">
         <h2>Clientes > Listagem</h2>
         <button class="novo" onclick="link('clienteNovo.php')">Novo Cliente</button>
       </div>
@@ -57,7 +57,7 @@ if (!Auth::isAuthenticated()) {
                 <td>
                   <a href="clienteEditar.php?id=<?php echo $cliente->getId(); ?>" class="editar">Editar</a>
                   <?php if(EmprestimoRepository::countByClientes($cliente->getId()) == 0){ ?>
-                    <a href="clienteExcluir?id=<?php $cliente->getId() ?>" class="deletar">Deletar</a>
+                    <a href="clienteExcluir.php?id=<?php echo $cliente->getId() ?>" class="deletar">Deletar</a>
                   <?php }?>
                 </td>
               </tr>

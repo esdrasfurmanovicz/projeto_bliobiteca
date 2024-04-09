@@ -20,10 +20,11 @@ if (!Auth::isAuthenticated()) {
 </head>
 
 <body>
+<?php include("include/excPopUp.php") ?>
   <?php include("include/menu.php") ?>
   <main>
     <div class="container">
-      <div id="listagem">
+      <div class="listagem">
         <h2>Funcionario > Listagem</h2>
         <button class="novo" onclick="link('funcioNovo.php')">Novo Funcionario</button>
       </div>
@@ -55,7 +56,7 @@ if (!Auth::isAuthenticated()) {
                 <td>
                   <a href="funcioEditar.php?id=<?php echo $funcionario->getId(); ?>" class="editar">Editar</a>
                   <?php if( EmprestimoRepository::countByInclusaoFuncionario($funcionario->getId()) == 0 && EmprestimoRepository::countByAlteracaoFuncionario($funcionario->getId()) == 0 && EmprestimoRepository::countByDevolucaoFuncionario($funcionario->getId()) == 0 && EmprestimoRepository::countByRenovacaoFuncionario($funcionario->getId()) == 0 && ClienteRepository::countByInclusaoFuncionario($funcionario->getId()) == 0 && ClienteRepository::countByAlteracaoFuncionario($funcionario->getId()) == 0 && AutorRepository::countByInclusaoFuncionario($funcionario->getId()) == 0 && AutorRepository::countByAlteracaoFuncionario($funcionario->getId()) == 0 && LivroRepository::countByInclusaoFuncionario($funcionario->getId()) == 0 && LivroRepository::countByAlteracaoFuncionario($funcionario->getId()) == 0){ ?>
-                    <a href="funcioExcluir.php?id=<?php echo $funcionario->getId(); ?>" class="deletar">Deletar</a>
+                    <a onclick="popUpExc(<?php echo $funcionario->getId(); ?>)" class="deletar">Deletar</a>
                   <?php }?>
                 </td>
               </tr>
@@ -69,6 +70,25 @@ if (!Auth::isAuthenticated()) {
   </main>
   <script src="js/index.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <script>
+    function popUpExc(id){
+      fundExc = document.querySelector(".fundExc")
+      fundExc.style.display="flex"
+      const cancelar = document.querySelector(".cancelar")
+      cancelar.addEventListener("click", function(){
+          closePopup()
+      })
+      const excluir = document.querySelector(".excluir")
+      excluir.addEventListener("click", function(){
+          const link = `funcioExcluir.php?id=${id}`
+          window.location = link
+      }) 
+  }
+
+  function closePopup(){
+      fundExc.style.display="none"
+  }
+  </script>
 </body>
 
 </html>

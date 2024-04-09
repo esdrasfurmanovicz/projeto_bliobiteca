@@ -46,7 +46,7 @@ form .enviar{
     border: 2px solid #E7EAED;
 }
 
-#alterar{
+.alterar{
     background-color: white;
     color: rgb(20, 20, 20);
     font-size: 1.2em;
@@ -54,7 +54,7 @@ form .enviar{
     border-radius: 5px;
     border: 2px solid #E7EAED;
 }
-#alterar a{
+.alterar a{
     color: rgb(20, 20, 20);
 
 }

@@ -24,7 +24,7 @@ if (!Auth::isAuthenticated()) {
   <?php include("include/menu.php") ?>
   <main>
     <div class="container">
-      <div id="listagem">
+      <div class="listagem">
         <h2>Empréstimo > Listagem</h2>
         <button class="novo" onclick="link('empresNovo.php')">Novo Emprestimo</button>
       </div>
@@ -69,13 +69,19 @@ if (!Auth::isAuthenticated()) {
                 <td><?php echo $empres->showDataVencimento("d/m/Y"); ?></td>
                 <td><?php echo $empres->showDataDevolucao("d/m/Y"); ?></td>
                 <td>
+                <?php if(EmprestimoRepository::countByDataDevolucao($empres->getId()) == 0){ ?>
+                  <a href="empresDevolver.php?id=<?php echo $empres->getId() ?>" class="devolver">Devolver</a>
+                  <?php } ?>
+
                 <?php if(EmprestimoRepository::countByDataRenovacao($empres->getId()) == 0 && EmprestimoRepository::countByDataDevolucao($empres->getId()) == 0 && $empres->getDataVencimento() >= date('Y-m-d')){ ?>
                   <a href="empresRenovar.php?id=<?php echo $empres->getId(); ?>" class="renovar">Renovar</a>
                   <?php } ?>
                   
                   <?php if(EmprestimoRepository::countByDataAlteracao($empres->getId()) == 0 && EmprestimoRepository::countByDataDevolucao($empres->getId()) == 0 && EmprestimoRepository::countByDataRenovacao($empres->getId()) == 0){ ?>
-                  <a href="empresExcluir?id=<?php $empres->getId() ?>" class="deletar">Excluir</a>
+                  <a href="empresExcluir.php?id=<?php echo $empres->getId() ?>" class="deletar">Excluir</a>
                   <?php } ?>
+
+
                 </td>
 
               </tr>

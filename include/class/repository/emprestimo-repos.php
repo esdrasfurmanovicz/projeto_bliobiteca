@@ -198,15 +198,17 @@ class EmprestimoRepository implements Repository{
     }
     public static function update($obj){
         $db = DB::getInstance();
-        $sql = "UPDATE emprestimo SET data_vencimento = :data_vencimento, data_alteracao = :data_alteracao, data_renovacao = :data_renovacao, alteracao_funcionario_id = :alteracao_funcionario_id, renovacao_funcionario_id = :renovacao_funcionario_id  WHERE id = :id";
+        $sql = "UPDATE emprestimo SET data_vencimento = :data_vencimento, data_alteracao = :data_alteracao, data_renovacao = :data_renovacao, data_devolucao = :data_devolucao, alteracao_funcionario_id = :alteracao_funcionario_id, renovacao_funcionario_id = :renovacao_funcionario_id, devolucao_funcionario_id = :devolucao_funcionario_id  WHERE id = :id";
 
         $query = $db->prepare($sql);//prepara a query para ser executada.
         $query->bindValue(':id', $obj->getId());
         $query->bindValue(':data_vencimento' ,$obj->getDataVencimento());
         $query->bindValue(':data_alteracao', $obj->getDataAlteracao());
         $query->bindValue(':data_renovacao', $obj->getDataRenovacao());
+        $query->bindValue(':data_devolucao', $obj->getDataDevolucao());
         $query->bindValue(':alteracao_funcionario_id', $obj->getAlteracaoFuncionarioId());
         $query->bindValue(':renovacao_funcionario_id',  $obj->getRenovacaoFuncionarioId());
+        $query->bindValue(':devolucao_funcionario_id',  $obj->getDevolucaoFuncionarioId());
         $query->execute();
     }
     public static function delete($id){

@@ -23,7 +23,7 @@ if (!Auth::isAuthenticated()) {
   <?php include("include/menu.php") ?>
   <main>
     <div class="container">
-      <div id="listagem">
+      <div class="listagem">
         <h2>Livros > Listagem</h2>
         <button class="novo" onclick="link('livroNovo.php')">Novo Livro</button>
       </div>
@@ -51,7 +51,7 @@ if (!Auth::isAuthenticated()) {
                 <td><?php echo $livro->getGenero(); ?></td>
                 <td><?php echo $livro->getIsbn(); ?></td>
                 <td>
-                  <a href="livroEditar.php?id=<?php echo $livro->getId(); ?>" id="editar">Editar</a>
+                  <a href="livroEditar.php?id=<?php echo $livro->getId(); ?>" class="editar">Editar</a>
                   <?php if(EmprestimoRepository::countByLivros($livro->getId()) == 0){ ?>
                     <a href="livroExcluir.php?id=<?php echo $livro->getId(); ?>" class="deletar">Deletar</a>
                   <?php }?>
