@@ -75,7 +75,7 @@ if (!Auth::isAuthenticated()) {
                   <?php } ?>
                   
                   <?php if(EmprestimoRepository::countByDataAlteracao($empres->getId()) == null && EmprestimoRepository::countByDataDevolucao($empres->getId()) == null && EmprestimoRepository::countByDataRenovacao($empres->getId()) == null){ ?>
-                  <a onclick="popUpExc(<?php echo $emprestimo->getId()?>)" class="deletar">Excluir</a>
+                  <a href="empresExcluir.php?id=<?php echo $empres->getId(); ?>" id="deletar">Excluir</a>
                   <?php } ?>
                 </td>
 
@@ -88,7 +88,6 @@ if (!Auth::isAuthenticated()) {
       </div>
     </div>
   </main>
-  <script src="js/index.js"></script>
   <script src="js/index.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
