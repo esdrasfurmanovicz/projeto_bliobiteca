@@ -20,6 +20,7 @@ if (!Auth::isAuthenticated()) {
 </head>
 
 <body>
+  <?php include("include/excPopUp.php") ?>
   <?php include("include/menu.php") ?>
   <main>
     <div class="container">
@@ -53,7 +54,7 @@ if (!Auth::isAuthenticated()) {
                 <td>
                   <a href="livroEditar.php?id=<?php echo $livro->getId(); ?>" class="editar">Editar</a>
                   <?php if(EmprestimoRepository::countByLivros($livro->getId()) == 0){ ?>
-                    <a href="livroExcluir.php?id=<?php echo $livro->getId(); ?>" class="deletar">Deletar</a>
+                    <a onclick="popUpExc(<?php echo $livro->getId(); ?>)" class="deletar">Deletar</a>
                   <?php }?>
                 </td>
               </tr>
@@ -67,6 +68,25 @@ if (!Auth::isAuthenticated()) {
   </main>
   <script src="js/index.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <script>
+    function popUpExc(id){
+      fundExc = document.querySelector(".fundExc")
+      fundExc.style.display="flex"
+      const cancelar = document.querySelector(".cancelar")
+      cancelar.addEventListener("click", function(){
+          closePopup()
+      })
+      const excluir = document.querySelector(".excluir")
+      excluir.addEventListener("click", function(){
+          const link = `livroExcluir.php?id=${id}`
+          window.location = link
+      }) 
+  }
+
+  function closePopup(){
+      fundExc.style.display="none"
+  }
+  </script>
 </body>
 
 </html>
