@@ -44,7 +44,7 @@ if (!$autor){
                     <form action="autorEditarPost.php" method="POST">
                         <div class="md-3">
                             <label for="nome" class="form-label">Nome</label>
-                            <input type="text" name="nome" id="nome" class="form-control" value="<?php echo $autor->getNome();?>" required>
+                            <input type="text" name="nome" id="nome" class="form-control" value="<?php echo $autor->getNome();?>" required maxlenght="100">
                         </div>
                         <div class="md-3">
                             <input type="hidden" name="id" value="<?php echo $autor->getId();?>">

@@ -31,7 +31,7 @@ if (!Auth::isAuthenticated()) {
                     <form action="funcioNovoPost.php" method="POST">
                         <div class="md-3 mb-3">
                             <label for="nome" class="form-label">Nome</label>
-                            <input type="text" name="nome" id="nome" class="form-control" required>
+                            <input type="text" name="nome" id="nome" class="form-control" required maxlength="100">
                         </div>
                         <div class="row mb-3">
                             <div class="md-3 col-6">
@@ -46,7 +46,7 @@ if (!Auth::isAuthenticated()) {
                         <div class="row mb-3">
                             <div class="md-3 col-6">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="text" name="email" id="email" class="form-control" required>
+                                <input type="text" name="email" id="email" class="form-control" required maxlength="100">
                             </div>
                             <div class="md-3 col-6" class="senha">
                                 <label for="senha">Senha</label>
@@ -65,7 +65,7 @@ if (!Auth::isAuthenticated()) {
                                             </path>
                                         </svg>
                                     </label>
-                                    <input type="password" name="senha" id="senha" class="form-control input" required>
+                                    <input type="password" name="senha" id="senha" class="form-control input" required maxlength="100">
                                 </div>
                             </div>
                         </div>

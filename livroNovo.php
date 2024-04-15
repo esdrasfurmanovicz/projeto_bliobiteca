@@ -30,7 +30,7 @@ if (!Auth::isAuthenticated()) {
                     <form action="livroNovoPost.php" method="POST">
                         <div class="md-3 mb-3">
                             <label for="titulo" class="form-label">Titulo</label>
-                            <input type="text" name="titulo" id="titulo" class="form-control" required>
+                            <input type="text" name="titulo" id="titulo" class="form-control" required maxlength="200">
                         </div>
                         <div class="row mb-3">
                             <div class="md-3 col-4">
@@ -39,7 +39,7 @@ if (!Auth::isAuthenticated()) {
                             </div>
                             <div class="md-3 col-4">
                                 <label for="genero" class="form-label">Genero</label>
-                                <input type="text" name="genero" id="genero" class="form-control" required>
+                                <input type="text" name="genero" id="genero" class="form-control" required maxlenght="100">
                             </div>
                             <div class="md-3 col-4">
                                 <label for="isbn" class="form-label">Isbn</label>
@@ -67,7 +67,14 @@ if (!Auth::isAuthenticated()) {
         </div>
     </main>
     <script src="js/index.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/jquery.mask.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+        $('#ano').mask('0000');
+    })
+    </script>
 </body>
 
 </html>

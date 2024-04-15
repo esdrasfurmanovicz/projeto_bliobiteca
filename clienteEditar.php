@@ -70,7 +70,7 @@ if (!$cliente) {
                         </div>
                         <div class="md-3 mb-3">
                             <label for="datepicker" class="form-label">Data de Nascimento</label>
-                            <input type="text" name="dataNascimento" id="datepicker" class="form-control" value="<?php echo $cliente->showDataNascimento('d/m/Y') ?>" required>
+                            <input type="text" name="dataNascimento" id="datepicker" class="form-control nascimento" value="<?php echo $cliente->showDataNascimento('d/m/Y') ?>" required>
                         </div>
                         <div class="md-3">
                             <input type="hidden" name="id" value="<?php echo $cliente->getId(); ?>">
