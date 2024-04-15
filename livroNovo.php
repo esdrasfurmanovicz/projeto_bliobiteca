@@ -47,14 +47,14 @@ if (!Auth::isAuthenticated()) {
                             </div>
                         </div>
                         <div class="md-3" class='select'>
-                            <label for="autor" class="form-label">Autor</label> <br>
-                            <select name="autor" id="autor" required class="form-select">
+                            <label for="autor" class="label">Autor</label> <br>
+                            <select name="autor" id="autor" >
                                 <?php
                                     foreach(AutorRepository::listAll() as $autor){
                                 ?>
                                 <option value="<?php echo $autor->getId();?>">
                                         <?php echo $autor->getNome() ?>
-                                </option>
+                                </option> 
                                 <?php } ?>
                             </select>
                         </div> 

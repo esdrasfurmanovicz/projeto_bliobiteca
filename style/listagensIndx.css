@@ -18,7 +18,9 @@ table{
 }
 td{
     border: 1px solid rgb(204, 204, 204);
-    background-color: white;
+}
+tr:nth-child(even){
+  background-color: rgb(226, 226, 226);
 }
 th{
     background-color: var(--cor02);

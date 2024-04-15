@@ -2,11 +2,11 @@
     <nav>
         <div class="headTitle" onclick="link('index.php')">
             <img src="img/book.png" alt="">
-            <h1>Bliobliteca</h1>
+            <h1>Gnodex</h1>
         </div>
         <div class="ul">
             <div class="dropdown">
-                <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="btn dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Produtos
                 </a>
 

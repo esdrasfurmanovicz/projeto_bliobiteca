@@ -83,6 +83,10 @@ nav .ul{
   padding: 0px;
   color: white;
 }
+.dropdown a:focus{
+  border: none;
+  outline: none;
+}
 .dropdown a:hover{
   color: white;
 }

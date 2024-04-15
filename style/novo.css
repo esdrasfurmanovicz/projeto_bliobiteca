@@ -32,18 +32,22 @@ form .enviar{
 }
 
 
-.select{
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-}
-.select > select{
+select{
+    width: 100%;
+    transition: 0.3s;
     background-color: white;
     color: rgb(20, 20, 20);
     font-size: 1.2em;
     padding: 4px;
     border-radius: 5px;
     border: 2px solid #E7EAED;
+    outline: 0px;
+}
+select:focus,
+select:hover {
+    border-color: var(--cor02);
+    background-color: #fff;
+    box-shadow: 0 0 0 5px rgb(129 140 248 / 30%);
 }
 
 .alterar{

@@ -34,26 +34,26 @@ if (!Auth::isAuthenticated()) {
                                 <label for="livro" class="form-label">Livro</label>
                                 <select name="livroId" id="cliente" required>
                                     <?php
-                                        foreach(LivroRepository::listAll() as $livro){
-                                            if(EmprestimoRepository::countByLivros($livro->getId()) == 0 || EmprestimoRepository::countByLivrosDevol($livro->getId()) > 0){
+                                        foreach(LivroRepository::listForNewEmpresLivro() as $livro){
+                                            
                                     ?>
                                         <option value="<?php echo $livro->getId();?>">
                                             <?php echo $livro->getTitulo(); ?>
                                         </option>
-                                    <?php }} ?>
+                                    <?php } ?>
                                 </select>
                             </div>
                             <div class="select col-6">
                                 <label for="cliente" class="form-label">Cliente</label>
                                 <select name="clienteId" id="cliente" required>
                                     <?php
-                                        foreach(ClienteRepository::listAll() as $cliente){
-                                            if(EmprestimoRepository::countByClientes($cliente->getId()) == 0 || EmprestimoRepository::countByClientesDevol($cliente->getId()) > 0){
+                                        foreach(ClienteRepository::listForNewEmpresCliente() as $cliente){
+                                            
                                     ?>
                                         <option value="<?php echo $cliente->getId();?>">
                                             <?php echo $cliente->getNome(); ?>
                                         </option>
-                                    <?php }} ?>
+                                    <?php } ?>
                                 </select>
                             </div>
                         </div>

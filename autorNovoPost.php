@@ -21,7 +21,7 @@ $autor = Factory::autor();
 
 $autor->setNome($_POST['nome']);
 $autor->setinclusaoFuncionarioId($user->getId());
-$autor->setDataInclusao(date('Y-d-m H:i:s'));
+$autor->setDataInclusao(date('Y-m-d H:i:s'));
 
 $autor_retorno = AutorRepository::insert($autor);
 

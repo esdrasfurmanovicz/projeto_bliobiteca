@@ -88,6 +88,7 @@ if (!Auth::isAuthenticated()) {
   function closePopup(){
       fundExc.style.display="none"
   }
+
   </script>
 </body>
 

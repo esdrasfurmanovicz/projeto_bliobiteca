@@ -39,7 +39,7 @@ date_default_timezone_set('America/Sao_Paulo');
 
 $funcio->setSenha($_POST['senha']);
 $funcio->setAlteracaoFuncionarioId($user->getId());
-$funcio->setDataAlteracao(date('Y-d-m H:i:s'));
+$funcio->setDataAlteracao(date('Y-m-d H:i:s'));
 
 FuncionarioRepository::update($funcio);
 

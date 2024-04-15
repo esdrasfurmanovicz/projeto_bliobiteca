@@ -50,9 +50,9 @@ $dateFormatted = $datetime->format('Y-m-d');
 $empres->setDataVencimento($dateFormatted);
 $empres->setAlteracaoFuncionarioId($user->getId());
 $empres->setRenovacaoFuncionarioId($user->getId());
-$empres->setDataAlteracao(date('Y-d-m H:i:s'));
-$empres->setDataRenovacao(date('Y-d-m H:i:s'));
+$empres->setDataAlteracao(date('Y-m-d H:i:s'));
+$empres->setDataRenovacao(date('Y-m-d H:i:s'));
 
 EmprestimoRepository::update($empres);
 
-header("Location: empresListAll.php?dataV=". $empres->getDataVencimento() ."?alteFunId=". $empres->getAlteracaoFuncionarioId() ."?renovFunId=". $empres->getRenovacaoFuncionarioId() ."?dataAlter=". $empres->getDataAlteracao() ."?dataRenov=" . $empres->getDataRenovacao(). "?id=". $empres->getId());
+header("Location: empresListAll.php" );

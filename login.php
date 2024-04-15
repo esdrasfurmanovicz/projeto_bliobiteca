@@ -28,7 +28,7 @@ if(Auth::isAuthenticated()){
 
         </div>
         <div class="login">
-            <h1>Bliobiteca</h1>
+            <h1>Gnodex</h1>
             <p>Tão completo quanto a Biblioteca de Alexandria</p><br>
             <div class="formulario">
                 <form method="POST" id="loginForm" action="logar.php">
