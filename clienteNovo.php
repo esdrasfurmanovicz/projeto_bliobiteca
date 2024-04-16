@@ -73,6 +73,7 @@ if (!Auth::isAuthenticated()) {
     var picker = new Pikaday({
         field: document.getElementById('datepicker'),
         minDate: new Date(1900, 0, 1),
+        maxDate: new Date(),
         yearRange: [1900, new Date().getFullYear()],
         toString(date, format = 'DD/MM/YYYY') {
             const day = date.getDate().toString().padStart(2, '0');

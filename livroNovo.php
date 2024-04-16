@@ -29,7 +29,7 @@ if (!Auth::isAuthenticated()) {
                 <div class="col-md-12 m-auto">
                     <form action="livroNovoPost.php" method="POST">
                         <div class="md-3 mb-3">
-                            <label for="titulo" class="form-label">Titulo</label>
+                            <label for="titulo" class="form-label">Título</label>
                             <input type="text" name="titulo" id="titulo" class="form-control" required maxlength="200">
                         </div>
                         <div class="row mb-3">
@@ -38,7 +38,7 @@ if (!Auth::isAuthenticated()) {
                                 <input type="text" name="ano" id="ano" class="form-control" maxlength="4">
                             </div>
                             <div class="md-3 col-4">
-                                <label for="genero" class="form-label">Genero</label>
+                                <label for="genero" class="form-label">Gênero</label>
                                 <input type="text" name="genero" id="genero" class="form-control" required maxlenght="100">
                             </div>
                             <div class="md-3 col-4">

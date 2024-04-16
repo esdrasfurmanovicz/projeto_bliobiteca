@@ -34,9 +34,9 @@ if (!Auth::isAuthenticated()) {
           <thead>
             <tr>
               <th>ID</th>
-              <th>Titulo</th>
+              <th>Título</th>
               <th>Ano</th>
-              <th>Genero</th>
+              <th>Gênero</th>
               <th>ISBN</th>
               <th>Ações</th>
             </tr>
