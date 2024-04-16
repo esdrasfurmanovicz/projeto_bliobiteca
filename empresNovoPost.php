@@ -16,6 +16,9 @@ if($_POST["dataVencimento"] == '' || $_POST["dataVencimento"] == null){
     header("Location: empresNovo.php");
     exit();
 }
+
+
+
 date_default_timezone_set('America/Sao_Paulo');
 
 $datetime = DateTime::createFromFormat('d/m/Y', $_POST["dataVencimento"]);

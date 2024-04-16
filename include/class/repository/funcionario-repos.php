@@ -109,4 +109,16 @@ class FuncionarioRepository implements Repository{
         $query->bindValue(":id",$id);
         $query->execute();
     }
+    public static function verefyCpf($cpf){ 
+        $db = DB::getInstance();
+
+        $sql = 'SELECT count(*) FROM funcionario WHERE cpf = :cpf';
+
+        $query = $db->prepare($sql);
+        $query->bindValue(":cpf",$cpf);
+        $query->execute();
+
+        $row = $query->fetch(PDO::FETCH_ASSOC);
+        return $row["count(*)"];
+    }
 }

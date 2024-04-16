@@ -24,7 +24,10 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     header("Location: funcioNovo.php");
     exit();
 }
-
+if(FuncionarioRepository::verefyCpf($_POST["cpf"]) > 0){
+    header("Location: funcioNovo.php");
+    exit();
+}
 
 $cpf = $_POST["cpf"];
 if ($cpf == ""){
