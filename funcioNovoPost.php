@@ -39,7 +39,7 @@ $funcio->setTelefone($_POST['telefone']);
 $funcio->setEmail($email);
 $funcio->setSenha($_POST['senha']);
 $funcio->setinclusaoFuncionarioId($user->getID());
-$funcio->setDataInclusao(date('Y-d-m H:i:s'));
+$funcio->setDataInclusao(date('Y-m-d H:i:s'));
 
 $funcio_retorno = FuncionarioRepository::insert($funcio);
 

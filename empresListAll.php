@@ -68,7 +68,7 @@ if (!Auth::isAuthenticated()) {
                     ?>
                 </td>
                 <td><?php echo $empres->showDataVencimento("d/m/Y"); ?></td>
-                <td><?php echo $empres->showDataDevolucao("d/m/Y"); ?></td>
+                <td><?php echo $empres->showDataDevolucao("d/m/Y H:i:s"); ?></td>
                 <td>
                 <?php if(EmprestimoRepository::countByDataDevolucao($empres->getId()) == 0){ ?>
                   <a href="empresDevolver.php?id=<?php echo $empres->getId() ?>" class="devolver">Devolver</a>

@@ -17,8 +17,6 @@ if (!Auth::isAuthenticated()) {
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="style/listagensIndx.css">
   <link rel="stylesheet" href="style/index.css">
-  <script src="js/index.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -68,7 +66,7 @@ if (!Auth::isAuthenticated()) {
                     ?>
                 </td>
                 <td><?php echo $empres->showDataVencimento("d/m/Y"); ?></td>
-                <td><?php echo $empres->showDataDevolucao("d/m/Y"); ?></td>
+                <td><?php echo $empres->showDataDevolucao("d/m/Y H:i:s"); ?></td>
                 <td>
                 <?php if(EmprestimoRepository::countByDataRenovacao($empres->getId()) == null && EmprestimoRepository::countByDataDevolucao($empres->getId()) == null && $empres->getDataVencimento() >= date('Y-m-d')){ ?>
                   <a href="empresRenovar.php?id=<?php echo $empres->getId(); ?>" class="renovar">Renovar</a>

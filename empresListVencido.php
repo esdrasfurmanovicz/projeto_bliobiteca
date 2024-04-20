@@ -66,7 +66,7 @@ if (!Auth::isAuthenticated()) {
                     ?>
                 </td>
                 <td><?php echo $empres->showDataVencimento("d/m/Y"); ?></td>
-                <td><?php echo $empres->showDataDevolucao("d/m/Y"); ?></td>
+                <td><?php echo $empres->showDataDevolucao("d/m/Y H:i:s"); ?></td>
                 <td>
                 <?php if(EmprestimoRepository::countByDataRenovacao($empres->getId()) == null && EmprestimoRepository::countByDataDevolucao($empres->getId()) == null && $empres->getDataVencimento() >= date('Y-m-d')){ ?>
                   <a href="empresRenovar.php?id=<?php echo $empres->getId(); ?>" class="renovar">Renovar</a>
