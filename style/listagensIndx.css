@@ -75,17 +75,10 @@ a:hover{
     border: none;
     padding: 7px;
     border-radius: 5px;
-  }
-  .fil a{
-    color: rgb(0, 145, 255);
-  }
-  .fil a{
-    text-decoration: none;
+    color: rgb(0, 145, 255)
   }
   .fil .ativo{
     background-color: rgb(0, 145, 255);
-  }
-  .fil .ativo a{
     color: white;
   }
 

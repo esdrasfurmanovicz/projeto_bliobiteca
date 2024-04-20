@@ -31,7 +31,7 @@ if (!Auth::isAuthenticated()) {
                     <form action="clienteNovoPost.php" method="POST" id="formulario">
                         <div class="md-3 mb-3">
                             <label for="nome" class="form-label">Nome</label>
-                            <input type="text" name="nome" id="nome" class="form-control" required>
+                            <input type="text" name="nome" id="nome" class="form-control" required maxlength="100">
                         </div>
                         <div class="row mb-3">
                             <div class="md-3 col-6">
@@ -40,7 +40,7 @@ if (!Auth::isAuthenticated()) {
                             </div>
                             <div class="md-3 col-6">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="text" name="email" id="email" class="form-control" required>
+                                <input type="text" name="email" id="email" class="form-control" required maxlength="200">
                             </div>
                         </div>
                         <div class="md-3 mb-3">
@@ -73,6 +73,7 @@ if (!Auth::isAuthenticated()) {
     var picker = new Pikaday({
         field: document.getElementById('datepicker'),
         minDate: new Date(1900, 0, 1),
+        maxDate: new Date(),
         yearRange: [1900, new Date().getFullYear()],
         toString(date, format = 'DD/MM/YYYY') {
             const day = date.getDate().toString().padStart(2, '0');

@@ -234,7 +234,7 @@ class EmprestimoRepository implements Repository{
     }
 
     public static function countByLivros($livro_id){ // Conta quantos emprestimos existem com o mesmo livro
-        $db = DB::getInstance();
+        $db = DB::getInstance(); 
 
         $sql = 'SELECT count(*) FROM emprestimo WHERE livro_id = :livro_id'; 
 

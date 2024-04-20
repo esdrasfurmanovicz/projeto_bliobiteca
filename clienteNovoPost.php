@@ -31,6 +31,12 @@ $rg = $_POST["rg"];
 if ($rg == ""){
     $rg = null;
 }
+
+if(ClienteRepository::verefyCpf($_POST["cpf"]) > 0 || ClienteRepository::verefyRg($_POST["rg"] > 0)){
+    header("Location: clienteNovo.php");
+    exit();
+}
+
 date_default_timezone_set('America/Sao_Paulo');
 
 $datetime = DateTime::createFromFormat('d/m/Y', $_POST["dataNascimento"]);

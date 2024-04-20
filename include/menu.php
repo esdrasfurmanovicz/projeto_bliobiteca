@@ -26,7 +26,7 @@
                 </ul>
             </div>
                 <a href="empresListAll.php">
-                Emprestimo
+                Empréstimo
                 </a>
 
         </div>

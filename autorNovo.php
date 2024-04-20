@@ -30,7 +30,7 @@ if (!Auth::isAuthenticated()) {
                     <form action="autorNovoPost.php" method="POST">
                         <div class="md-3">
                             <label for="nome" class="form-label">Nome</label>
-                            <input type="text" name="nome" id="nome" class="form-control" required>
+                            <input type="text" name="nome" id="nome" class="form-control" required maxlenght="100">
                         </div>
                         <div class="md-3">
                             <button type="submit" class="enviar">Enviar</button>

@@ -23,16 +23,16 @@ if(!$funcio){
 }
 
 if(!isset($_POST['senha'])){
-    header("Location: funcioEditar.php?id=".$funcio->getId());
+    header("Location: funcioAlterarSenha.php?id=".$funcio->getId());
     exit();
 }
 if($_POST["senha"] == "" || $_POST["senha"] == null){
-    header("Location: funcioEditar.php?id=".$funcio->getId());
+    header("Location: funcioAlterarSenha.php?id=".$funcio->getId());
     exit();
 }
 
 if($_POST["senha"] != $_POST["repSenha"]){
-    header("Location: funcioEditar.php?id=".$funcio->getId());
+    header("Location: funcioAlterarSenha.php?id=".$funcio->getId());
     exit();
 }
 date_default_timezone_set('America/Sao_Paulo');

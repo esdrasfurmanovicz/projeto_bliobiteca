@@ -139,4 +139,30 @@ class ClienteRepository implements Repository{
         $row = $query->fetch(PDO::FETCH_ASSOC);
         return $row["count(*)"];
     }
+    public static function verefyCpf($cpf){ 
+        $db = DB::getInstance();
+
+        $sql = 'SELECT count(*) FROM cliente WHERE cpf = :cpf';
+
+        $query = $db->prepare($sql);
+        $query->bindValue(":cpf",$cpf);
+        $query->execute();
+
+        $row = $query->fetch(PDO::FETCH_ASSOC);
+        return $row["count(*)"];
+    }
+
+
+public static function verefyRg($rg){ 
+        $db = DB::getInstance();
+
+        $sql = 'SELECT count(*) FROM cliente WHERE rg = :rg';
+
+        $query = $db->prepare($sql);
+        $query->bindValue(":rg",$rg);
+        $query->execute();
+
+        $row = $query->fetch(PDO::FETCH_ASSOC);
+        return $row["count(*)"];
+    }
 }

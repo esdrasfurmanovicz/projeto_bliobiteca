@@ -28,12 +28,12 @@ if (!Auth::isAuthenticated()) {
         <button class="novo" onclick="link('empresNovo.php')">Novo Emprestimo</button>
       </div>
       <div class="fil">
-        <button><a href="empresListAll.php">Todos</a></button>
-        <button><a href="empresListAtivos.php"> Ativos</a></button>
-        <button><a href="empresListDevolv.php">Devolvidos</a></button>
-        <button class="ativo"><a href="empresListVencido.php">Vencidos</a></button>
-        <button><a href="empresListRenov.php">Renovados</a></button>
-        <button><a href="empresListNotRenov.php">Não Renovados</a></button>
+        <button onclick="link('empresListAll.php')">Todos</a></button>
+        <button onclick="link('empresListAtivos.php')">Ativos</a></button>
+        <button onclick="link('empresListDevolv.php')">Devolvidos</button>
+        <button class="ativo" onclick="link('empresListVencido.php')">Vencidos</button>
+        <button onclick="link('empresListRenov.php')">Renovados</button>
+        <button onclick="link('empresListNotRenov.php')">Não Renovados</button>
       </div>
       <button class="voltar"><a href="index.php">Voltar</a></button>
       <div class="table-responsive">

@@ -47,7 +47,7 @@ if (!$funcionario) {
                     <form action="funcioEditarPost.php" method="POST">
                         <div class="md-3 mb-3">
                             <label for="nome" class="form-label">Nome</label>
-                            <input type="text" name="nome" id="nome" class="form-control" value="<?php echo $funcionario->getNome(); ?>" required>
+                            <input type="text" name="nome" id="nome" class="form-control" value="<?php echo $funcionario->getNome(); ?>" required maxlength="100">
                         </div>
                         <div class="row mb-3">
                             <div class="md-3 col-6">
@@ -61,7 +61,7 @@ if (!$funcionario) {
                         </div>
                         <div class="md-3 mb-3">
                             <label for="email" class="form-label">Email</label>
-                            <input type="text" name="email" id="email" class="form-control" value="<?php echo $funcionario->getEmail(); ?>" required>
+                            <input type="text" name="email" id="email" class="form-control" value="<?php echo $funcionario->getEmail(); ?>" required maxlength="100">
                         </div>
                         <div class="md-3 mb-3">
                             <button class='alterar'><a href="funcioAlterarSenha.php?id=<?php echo $funcionario->getId() ?>">Alterar Senha</a></button>
