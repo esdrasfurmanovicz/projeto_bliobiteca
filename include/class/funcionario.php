@@ -105,20 +105,3 @@
         
     }
 }
-
-// public function checkSenha($senha){
-//     $senha = hash('sha256',$senha);
-//     if($senha == $this->senha){
-//         return true;
-//     }
-//     return false;
-// }
-
-// public function setSenha($senha, $is_hashed = false){
-//     if($is_hashed){
-//         $this->senha = $senha;
-//     } else{
-//         $this->senha = hash("sha256",$senha);
-//     }
-    
-// }
