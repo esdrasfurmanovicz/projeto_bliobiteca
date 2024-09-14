@@ -24,6 +24,8 @@ class Auth{
 
     public static function isAuthenticated(){
         if(isset($_SESSION['is_authenticated'])){
+            return "parou index";
+                    error;
             if($_SESSION['is_authenticated']){
                 if($_SESSION['is_authenticated'] >= time()){
                     $_SESSION['auth_expires_at'] = time() + self::$expires_time;
